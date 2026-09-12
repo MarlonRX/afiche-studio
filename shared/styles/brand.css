@@ -1,0 +1,56 @@
+/* ============================================================
+   HyperFrames Images — Shared brand tokens
+   Same palette as hyper-frames-videos (dark background + gold)
+   ============================================================ */
+
+:root {
+    --bg:          #0f0f12;
+    --bg-deep:     #09090b;
+    --surface:     #1a1a1f;
+    --surface-2:   #22222a;
+    --line:        #2a2a30;
+
+    --text:        #e1e1e1;
+    --text-soft:   #c8c8cc;
+    --muted:       #a0a0a0;
+
+    --accent:      #d4af37;
+    --accent-2:    #f0cf6a;
+    --accent-dim:  rgba(212, 175, 55, .12);
+    --accent-hover:#c9a632;
+
+    --success:     #2e8b57;
+    --error:       #cf666b;
+}
+
+/* Reset for the canvas */
+* { margin: 0; padding: 0; box-sizing: border-box; }
+
+html, body {
+    background: var(--bg-deep);
+    font-family: 'Inter', system-ui, -apple-system, sans-serif;
+    -webkit-font-smoothing: antialiased;
+    text-rendering: geometricPrecision;
+}
+
+/* The canvas defines its own size; Puppeteer captures that element */
+#canvas {
+    position: relative;
+    color: var(--text);
+    overflow: hidden;
+}
+
+/* ---- Reusable utilities ---- */
+.accent  { color: var(--accent); }
+.mono    { font-family: 'JetBrains Mono', ui-monospace, monospace; }
+
+.hairline {
+    height: 1px;
+    background: linear-gradient(90deg, var(--accent), transparent);
+}
+
+/* Text shadow for thumbnails/legibility over light backgrounds */
+.readable { text-shadow: 0 2px 24px rgba(0, 0, 0, .65); }
+
+/* Rounded corner when exporting with crop */
+.rounded-export { border-radius: 0; }

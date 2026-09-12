@@ -1,0 +1,23 @@
+/* ============================================================
+   Afiche Studio — Adaptive kit
+   Gives every project the --W / --H / --S (scale) variables of
+   the real canvas, so the same design responds to any
+   variant: post, story, wide, banner...
+   Usage: link this CSS and the JS from shared/scripts/adaptive.js
+   ============================================================ */
+
+:root {
+    --W: 1080px;
+    --H: 1080px;
+    --S: 1;
+}
+
+#canvas {
+    width:  var(--W);
+    height: var(--H);
+}
+
+/* Semantic orientations (the JS sets them on #canvas) */
+#canvas[data-orient="wide"]   { /* 16:9, 1.9:1 or wider */ }
+#canvas[data-orient="tall"]   { /* vertical: story */ }
+#canvas[data-orient="square"] { /* ~1:1 */ }
