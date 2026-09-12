@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Afiche Studio — Design in HTML, export everywhere</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="">
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;700&family=Inter:wght@400;500;600;800&family=JetBrains+Mono:wght@400;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../../shared/styles/brand.css">
+<link rel="stylesheet" href="../../shared/styles/adaptive.css">
+<link rel="stylesheet" href="./styles.css">
+</head>
+<body>
+<div id="canvas" data-hf-id="hf-root">
+    <div class="grid" data-hf-id="hf-grid"></div>
+    <div class="glow" data-hf-id="hf-glow"></div>
+
+    <header data-hf-id="hf-header">
+        <div class="badge"><span class="dot"></span><span id="kicker">web &#8594; png</span></div>
+        <div class="logo" id="logo">Afiche<span>Studio</span></div>
+    </header>
+
+    <main data-hf-id="hf-main">
+        <div class="kicker" id="kicker-title">promotional image generator</div>
+        <h1 id="title">Design in <em>HTML</em>,<br>export everywhere</h1>
+        <p class="sub" id="subtitle">One <b>#canvas</b>, six formats and retina-sharp renders. Same design, exported as <b>post</b>, <b>story</b>, <b>thumb</b> and more.</p>
+        <ul class="points" id="points">
+            <li>PNG / WEBP / JPG</li>
+            <li>1x&#8211;3x scale</li>
+            <li>live preview</li>
+            <li>no mockups</li>
+        </ul>
+    </main>
+
+    <footer data-hf-id="hf-footer">
+        <div class="cmd"><i>&gt;</i> afiche --preset story my-post</div>
+        <a class="cta" id="cta" href="http://localhost:4560">
+            Open Studio
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 5l7 7-7 7"/></svg>
+        </a>
+    </footer>
+</div>
+<script src="../../shared/scripts/adaptive.js"></script>
+</body>
+</html>

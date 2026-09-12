@@ -1,0 +1,25 @@
+{
+  "name": "git-hero",
+  "title": "Git Hero - Visual Git in your terminal",
+  "description": "Centered promotional poster for the Git TUI written in Rust with Ratatui. Master layout is the 16:9 landscape; other variants derive from it.",
+  "preset": "wide",
+  "width": 1920,
+  "height": 1080,
+  "scale": 2,
+  "outputFormat": "png",
+  "brand": {
+    "colors": {
+      "background": "#0d0f17",
+      "surface": "#161821",
+      "accent": "#f7768e",
+      "secondary": "#7aa2f7",
+      "gold": "#e0af68",
+      "text": "#c0caf5"
+    },
+    "typography": {
+      "headlineFont": "Inter Black (900)",
+      "bodyFont": "Inter (400/500)",
+      "monoFont": "JetBrains Mono (400/700)"
+    }
+  }
+}

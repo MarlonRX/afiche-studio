@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Git Hero — Visual Git in your terminal</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="">
+<link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500;600;700&family=Space+Grotesk:wght@400;500;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../../shared/styles/brand.css">
+<link rel="stylesheet" href="../../shared/styles/adaptive.css">
+<link rel="stylesheet" href="./styles.css">
+</head>
+<body>
+<div id="canvas" data-hf-id="hf-root">
+    <div class="mesh"></div>
+    <div class="frame"></div>
+
+    <div class="inner">
+        <div class="status">
+            <div class="l"><span class="glyph">&#9608;&#9608;</span> gith &#8212; git&#183;hero <span class="ver">v0.3.1</span></div>
+            <div class="r"><span class="ok">&#9679; main</span> &#9650;2 &#183; dirty(3) &#183; <b>rust</b></div>
+        </div>
+
+        <div class="panes">
+            <div class="pane-l">
+                <div class="prompt"><i>&#10148;</i> run <span>gith</span> in any repo</div>
+                <h1>git<span class="hl">·</span><em>hero</em></h1>
+                <div class="tagline">Visual Git, right in your <b>terminal</b>.<br>Never leave the keyboard.</div>
+                <div class="keys" data-hf-id="hf-keys">
+                    <div class="k"><kbd>tab</kbd><span>switch panel</span></div>
+                    <div class="k"><kbd>space</kbd><span>stage file</span></div>
+                    <div class="k"><kbd>c</kbd><span>commit</span></div>
+                    <div class="k"><kbd>P</kbd><span>push</span></div>
+                    <div class="k"><kbd>t</kbd><span>10 themes: Tokyo, Dracula, Nord&#8230;</span></div>
+                </div>
+            </div>
+            <div class="pane-r">
+                <p class="lede"><strong>Side-by-side diffs</strong>, expandable history and every usual action &#8212; stage, commit, stash &#8212; in a fast <em>read-only-first</em> TUI written in Rust with <code>ratatui</code>.</p>
+                <div class="facts">
+                    <div class="fact"><b>Files + diff + commits</b>&nbsp;in one screen</div>
+                    <div class="fact"><b>Nerd Font</b> icons or plain ASCII</div>
+                    <div class="fact"><b>CLI mode</b> for scripts and CI</div>
+                </div>
+            </div>
+        </div>
+
+        <div class="install">
+            <div class="cmd"><i>&gt;</i> brew install gith</div>
+            <div class="cmd"><i>&gt;</i> cargo install gith</div>
+            <div class="cmd"><i>&gt;</i> snap install gith</div>
+            <div class="where"><strong>Linux &#183; macOS &#183; Windows</strong><br>AUR &#183; Homebrew &#183; prebuilt releases</div>
+        </div>
+
+        <div class="urlrow">
+            <div class="url">github.com<span>/MarlonRX/git-hero</span><small>open source &#183; releases with installers for the three platforms</small></div>
+            <div class="freedom"><b>free</b> forever</div>
+        </div>
+    </div>
+</div>
+<script src="../../shared/scripts/adaptive.js"></script>
+</body>
+</html>

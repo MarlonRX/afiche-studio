@@ -1,0 +1,147 @@
+/* Afiche Studio - nodovec: project styles, extracted from index.html.
+   Linked right after shared/styles/brand.css + adaptive.css. */
+
+/* NodoVec — centered editorial composition (obsidian + satin gold).
+       Master layout: Landscape 16:9 (1920x1080); square and story derive
+       from it. Colors and type follow the app's own design system
+       (context/design-system.md). */
+    #canvas {
+        --nv-bg:       #070A13;
+        --nv-gold:     #DFB15B;
+        --nv-green:    #10B981;
+        --nv-text:     #E8ECF4;
+        --nv-dim:      #8B93A7;
+        --nv-line:     #1C2434;
+        container-type: size;
+        position: relative;
+        overflow: hidden;
+        background:
+            radial-gradient(ellipse 85% 60% at 50% -12%, rgba(223,177,91,.13), transparent 60%),
+            radial-gradient(ellipse 90% 65% at 50% 115%, rgba(16,185,129,.09), transparent 55%),
+            var(--nv-bg);
+        color: var(--nv-text);
+        font-family: 'Plus Jakarta Sans', sans-serif;
+    }
+
+    /* faint grid, masked toward the center-top like the app's hero */
+    .mesh {
+        position: absolute; inset: 0;
+        background-image:
+            linear-gradient(rgba(223,177,91,.05) 1px, transparent 1px),
+            linear-gradient(90deg, rgba(223,177,91,.05) 1px, transparent 1px);
+        background-size: 6cqw 6cqw;
+        mask-image: radial-gradient(ellipse 85% 70% at 50% 0%, #000 20%, transparent 70%);
+        -webkit-mask-image: radial-gradient(ellipse 85% 70% at 50% 0%, #000 20%, transparent 70%);
+    }
+
+    .frame {
+        position: absolute; inset: 4cqw;
+        border: 1px solid rgba(223,177,91,.16);
+        pointer-events: none;
+    }
+
+    /* Everything on one vertical axis, optically centered */
+    .inner {
+        position: relative; height: 100%;
+        display: flex; flex-direction: column;
+        align-items: center; justify-content: center;
+        text-align: center;
+        padding: 8cqh 9cqw;
+        box-sizing: border-box;
+        gap: 3.4cqh;
+    }
+
+    /* ===== Crest: app mark + eyebrow ===== */
+    .crest { display: flex; flex-direction: column; align-items: center; gap: 1.7cqh; }
+    .mark {
+        width: clamp(34px, min(4.6cqw, 9cqh), 68px); aspect-ratio: 1;
+        border-radius: 24%;
+        background: linear-gradient(140deg, var(--nv-gold), #9c7832);
+        display: grid; place-items: center;
+        color: var(--nv-bg); font-weight: 800;
+        font-size: clamp(18px, min(2.7cqw, 5.2cqh), 40px);
+        box-shadow: 0 .5em 1.6em rgba(223,177,91,.32);
+    }
+    .mark::before { content: 'N'; }
+    .issue {
+        font-size: clamp(9px, min(1.35cqw, 2.7cqh), 19px);
+        font-weight: 700; letter-spacing: .34em; text-transform: uppercase;
+        color: var(--nv-dim);
+        padding-left: .34em; /* compensate tracking so it reads centered */
+    }
+    .issue b { color: var(--nv-gold); font-weight: 700; }
+
+    /* ===== Wordmark: the name IS the protagonist ===== */
+    h1 {
+        font-weight: 800;
+        font-size: clamp(56px, min(10.5cqw, 24cqh), 240px);
+        line-height: 1.0; letter-spacing: -.038em;
+        margin: 0; color: var(--nv-text);
+    }
+    h1 em { font-style: normal; color: var(--nv-gold); }
+
+    /* ===== Tagline: phrase right under the name ===== */
+    .tagline {
+        font-weight: 500;
+        font-size: clamp(15px, min(2.9cqw, 6.6cqh), 44px);
+        letter-spacing: -.01em; line-height: 1.3;
+        color: rgba(232,236,244,.78); margin: -1.6cqh 0 0;
+    }
+    .tagline b { color: var(--nv-text); font-weight: 800; }
+
+    /* ===== Divider: rule / diamond / rule ===== */
+    .divider { display: flex; align-items: center; gap: 2cqw; width: min(70cqw, 90%); }
+    .divider::before, .divider::after { content: ''; flex: 1; height: 1.5px; background: rgba(232,236,244,.14); }
+    .divider .gem { flex: none; width: clamp(7px, min(.8cqw, 1.6cqh), 13px); aspect-ratio: 1; background: var(--nv-gold); transform: rotate(45deg); }
+
+    /* ===== Description ===== */
+    .kicker p {
+        font-size: clamp(13px, min(1.9cqw, 4.4cqh), 28px);
+        font-weight: 400; line-height: 1.6; color: rgba(232,236,244,.72);
+        margin: 0; max-width: 58cqw;
+    }
+    .kicker p strong { color: var(--nv-text); font-weight: 700; }
+    .kicker p em { font-style: normal; color: var(--nv-gold); font-weight: 700; }
+
+    /* ===== Footer band: tags + url, centered stack ===== */
+    footer { display: flex; flex-direction: column; align-items: center; gap: 2.3cqh; margin-top: 1.2cqh; }
+    .tags { display: flex; gap: 1.2cqw; flex-wrap: wrap; justify-content: center; }
+    .tag {
+        padding: 1cqh 2.1cqw;
+        border: 1.5px solid rgba(223,177,91,.38); border-radius: 999px;
+        font-size: clamp(9.5px, min(1.25cqw, 2.9cqh), 20px);
+        font-weight: 600; letter-spacing: .04em; white-space: nowrap;
+        color: rgba(232,236,244,.85);
+    }
+    .tag.gold { background: var(--nv-gold); color: var(--nv-bg); border-color: var(--nv-gold); font-weight: 800; }
+
+    .url {
+        font-weight: 800;
+        font-size: clamp(14px, min(2.1cqw, 4.8cqh), 32px);
+        letter-spacing: -.01em; line-height: 1.35; color: var(--nv-text);
+    }
+    .url span { color: var(--nv-gold); }
+    .url small {
+        display: block; font-family: 'Plus Jakarta Sans', sans-serif;
+        font-size: clamp(8.5px, min(1.15cqw, 2.7cqh), 16px);
+        font-weight: 500; color: var(--nv-dim); letter-spacing: .06em; margin-top: .7cqh;
+    }
+
+    /* ---------- Square (derived): bigger type rhythm on 1080 ---------- */
+    #canvas[data-orient="square"] h1 { font-size: clamp(60px, min(16cqw, 21cqh), 290px); }
+    #canvas[data-orient="square"] .tagline { font-size: clamp(16px, min(4.2cqw, 5.6cqh), 56px); }
+    #canvas[data-orient="square"] .kicker p { max-width: 70cqw; font-size: clamp(14px, min(2.6cqw, 3.4cqh), 36px); }
+    #canvas[data-orient="square"] .tag { font-size: clamp(10px, min(1.7cqw, 2.3cqh), 23px); }
+    #canvas[data-orient="square"] .url { font-size: clamp(16px, min(2.9cqw, 3.9cqh), 42px); }
+    #canvas[data-orient="square"] .mark { width: clamp(40px, min(6.4cqw, 8cqh), 84px); }
+    #canvas[data-orient="square"] .issue { font-size: clamp(10px, min(1.7cqw, 2.1cqh), 22px); }
+
+    /* ---------- Story (derived): taller stack, airier gaps ---------- */
+    #canvas[data-orient="tall"] .inner { gap: 5cqh; padding: 10cqh 11cqw; }
+    #canvas[data-orient="tall"] h1 { font-size: clamp(52px, 16.5cqw, 260px); }
+    #canvas[data-orient="tall"] .kicker p { max-width: 82cqw; font-size: clamp(16px, 4.8cqw, 44px); }
+    #canvas[data-orient="tall"] .divider { width: min(84cqw, 92%); }
+    #canvas[data-orient="tall"] .tag { font-size: clamp(12px, min(2.9cqw, 1.8cqh), 26px); }
+    #canvas[data-orient="tall"] .url { font-size: clamp(18px, min(4.4cqw, 2.6cqh), 44px); }
+    #canvas[data-orient="tall"] .mark { width: clamp(44px, min(10cqw, 5cqh), 92px); }
+    #canvas[data-orient="tall"] .issue { font-size: clamp(11px, min(2.8cqw, 1.6cqh), 24px); }

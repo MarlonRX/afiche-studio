@@ -1,0 +1,24 @@
+{
+  "name": "afiche-studio",
+  "title": "Afiche Studio - Design in HTML, export everywhere",
+  "description": "Centered promotional poster for Afiche Studio itself (dogfooding). Master layout is the 16:9 landscape; other variants derive from it.",
+  "preset": "wide",
+  "width": 1920,
+  "height": 1080,
+  "scale": 2,
+  "outputFormat": "png",
+  "brand": {
+    "colors": {
+      "background": "#0f0f12",
+      "surface": "#1a1a1f",
+      "accent": "#d4af37",
+      "accent2": "#f0cf6a",
+      "text": "#e1e1e1"
+    },
+    "typography": {
+      "headlineFont": "Space Grotesk (700)",
+      "bodyFont": "Inter (400/500)",
+      "monoFont": "JetBrains Mono"
+    }
+  }
+}

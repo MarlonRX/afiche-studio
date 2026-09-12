@@ -1,0 +1,25 @@
+{
+  "name": "vitrina",
+  "title": "Vitrina - E-commerce Demo (portfolio)",
+  "description": "Centered promotional poster for the Vitrina e-commerce demo (portfolio piece). Master layout is the 16:9 landscape; other variants derive from it.",
+  "preset": "wide",
+  "width": 1920,
+  "height": 1080,
+  "scale": 2,
+  "outputFormat": "png",
+  "brand": {
+    "colors": {
+      "background": "#faf8f4",
+      "surface": "#ffffff",
+      "primary": "#201c18",
+      "secondary": "#6e6659",
+      "accent": "#8c2f3a",
+      "accentHover": "#71242e",
+      "border": "#efe7db"
+    },
+    "typography": {
+      "headlineFont": "Fraunces (600, italic 400)",
+      "bodyFont": "Inter (400/500)"
+    }
+  }
+}

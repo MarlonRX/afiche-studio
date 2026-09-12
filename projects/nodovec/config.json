@@ -1,0 +1,24 @@
+{
+  "name": "nodovec",
+  "title": "NodoVec - Your finances under control",
+  "description": "Centered promotional poster for the NodoVec financial dashboard. Master layout is the 16:9 landscape; other variants derive from it.",
+  "preset": "wide",
+  "width": 1920,
+  "height": 1080,
+  "scale": 2,
+  "outputFormat": "png",
+  "brand": {
+    "colors": {
+      "background": "#070A13",
+      "surface": "#0D111C",
+      "accent": "#DFB15B",
+      "success": "#10B981",
+      "error": "#F7768E"
+    },
+    "typography": {
+      "headlineFont": "Plus Jakarta Sans (800)",
+      "bodyFont": "Plus Jakarta Sans (400)",
+      "numericFont": "Space Grotesk (tabular)"
+    }
+  }
+}

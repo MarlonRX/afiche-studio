@@ -1,0 +1,27 @@
+{
+  "name": "demo",
+  "title": "Template Promotional Image",
+  "description": "Base template for generating promotional PNG images",
+  "preset": "post",
+  "width": 1080,
+  "height": 1080,
+  "scale": 2,
+  "outputFormat": "png",
+  "brand": {
+    "colors": {
+      "background": "#0f0f12",
+      "surface": "#1a1a1f",
+      "primary": "#e1e1e1",
+      "secondary": "#a0a0a0",
+      "accent": "#d4af37",
+      "accentHover": "#c9a632",
+      "border": "#2a2a30",
+      "success": "#2e8b57",
+      "error": "#cf666b"
+    },
+    "typography": {
+      "headlineFont": "Inter Black (900)",
+      "bodyFont": "Inter Regular (400)"
+    }
+  }
+}

@@ -1,0 +1,121 @@
+/* Afiche Studio - afiche-studio: project styles, extracted from index.html.
+   Linked right after shared/styles/brand.css + adaptive.css. */
+
+/* Afiche Studio — centered promotional poster (master: 16:9 landscape).
+       Identity: Space Grotesk headlines, gold on near-black, mono terminals
+       for the workflow. Same structure as the templates: grid + glow, a
+       header, a main block and a footer with the CTA. */
+    #canvas {
+        container-type: size;
+        display: grid;
+        grid-template-rows: auto 1fr auto;
+        padding: 8cqh 7cqw;
+        gap: 3.6cqh;
+        position: relative;
+        overflow: hidden;
+        background:
+            radial-gradient(ellipse 70% 60% at 50% 0%, rgba(212,175,55,.10), transparent 58%),
+            radial-gradient(ellipse 60% 55% at 90% 100%, rgba(240,207,106,.05), transparent 55%),
+            var(--bg);
+        color: var(--text);
+    }
+    .grid {
+        position: absolute; inset: 0;
+        background-image:
+            linear-gradient(rgba(212,175,55,.04) 1px, transparent 1px),
+            linear-gradient(90deg, rgba(212,175,55,.04) 1px, transparent 1px);
+        background-size: 5.5cqw 5.5cqw;
+        mask-image: radial-gradient(ellipse 85% 70% at 50% 48%, #000 38%, transparent 100%);
+        -webkit-mask-image: radial-gradient(ellipse 85% 70% at 50% 48%, #000 38%, transparent 100%);
+    }
+    .glow {
+        position: absolute; width: 64cqw; height: 64cqw;
+        left: 50%; top: 45%; transform: translate(-50%, -50%);
+        background: radial-gradient(circle, rgba(212,175,55,.15) 0%, transparent 62%);
+    }
+
+    header { position: relative; z-index: 2; display: flex; align-items: center; justify-content: space-between; }
+    .badge {
+        display: inline-flex; align-items: center; gap: 1.4cqw;
+        padding: 1.1cqh 2.2cqw; border: 1px solid var(--accent); border-radius: 999px;
+        font-family: 'JetBrains Mono', monospace;
+        font-size: clamp(12px, min(1.6cqw, 1.9cqh), 22px);
+        font-weight: 600; letter-spacing: .16em; text-transform: uppercase;
+        color: var(--accent); background: rgba(212,175,55,.07);
+    }
+    .badge .dot { width: .85em; height: .85em; border-radius: 50%; background: var(--accent); box-shadow: 0 0 .9em var(--accent); }
+    .logo { font-family: 'Space Grotesk', sans-serif; font-size: clamp(18px, min(2.5cqw, 2.7cqh), 34px); font-weight: 700; letter-spacing: -.02em; color: var(--text); }
+    .logo span { color: var(--accent); }
+
+    main { position: relative; z-index: 2; display: flex; flex-direction: column; justify-content: center; gap: 2.4cqh; min-height: 0; text-align: center; }
+    .kicker {
+        font-family: 'JetBrains Mono', monospace;
+        font-size: clamp(11px, min(1.5cqw, 1.8cqh), 20px);
+        letter-spacing: .34em; text-transform: uppercase; color: var(--accent);
+    }
+    h1 {
+        margin: 0;
+        font-family: 'Space Grotesk', sans-serif;
+        font-weight: 700;
+        font-size: clamp(46px, min(10.5cqw, 19cqh), 190px);
+        line-height: .98; letter-spacing: -.045em; color: var(--text);
+    }
+    h1 em { font-style: normal; color: var(--accent); }
+    .sub {
+        margin: 0 auto;
+        font-family: 'Inter', sans-serif; font-weight: 500;
+        font-size: clamp(15px, min(2.6cqw, 3cqh), 36px);
+        line-height: 1.45; color: var(--muted); max-width: 74cqw;
+    }
+    .sub b { color: var(--text-soft); font-weight: 600; }
+
+    ul.points {
+        list-style: none; margin: .6cqh auto 0; padding: 0;
+        display: flex; flex-wrap: wrap; justify-content: center; gap: 1.1cqh 1.8cqw;
+    }
+    ul.points li {
+        display: flex; align-items: center; gap: .8em;
+        font-family: 'JetBrains Mono', monospace; font-weight: 600;
+        font-size: clamp(12px, min(1.9cqw, 2.2cqh), 25px);
+        color: var(--text-soft);
+    }
+    ul.points li::before {
+        content: ''; flex: none; width: .85em; height: .85em; border-radius: .22em;
+        background: rgba(212,175,55,.16); border: .08em solid var(--accent);
+    }
+
+    footer {
+        position: relative; z-index: 2;
+        display: flex; align-items: flex-end; justify-content: space-between; gap: 3cqw;
+        padding-top: 2.4cqh; border-top: 1px solid var(--line);
+    }
+    .cmd {
+        font-family: 'JetBrains Mono', monospace;
+        font-size: clamp(14px, min(1.9cqw, 2.2cqh), 28px);
+        font-weight: 600; color: var(--text-soft);
+        background: var(--surface); border: 1px solid var(--line); border-radius: .5em;
+        padding: 1.05em 1.6em; white-space: nowrap;
+    }
+    .cmd i { font-style: normal; color: var(--accent); font-weight: 700; }
+    .cta {
+        display: inline-flex; align-items: center; gap: .8em;
+        padding: clamp(12px, 1.6cqh, 28px) clamp(18px, 2.6cqw, 44px);
+        border-radius: .5em; background: var(--accent); color: #0f0f12;
+        font-family: 'Space Grotesk', sans-serif; font-weight: 700;
+        font-size: clamp(14px, min(2cqw, 2.3cqh), 30px); letter-spacing: -.01em;
+        text-decoration: none; white-space: nowrap;
+    }
+    .cta svg { width: 1.1em; height: 1.1em; }
+
+    /* ---------- Square (derived): centered stacks vertically ---------- */
+    #canvas[data-orient="square"] main { gap: 3.2cqh; }
+    #canvas[data-orient="square"] h1 { font-size: clamp(52px, 12.5cqw, 150px); }
+    #canvas[data-orient="square"] footer { flex-direction: column; align-items: stretch; }
+    #canvas[data-orient="square"] .cmd { white-space: normal; }
+
+    /* ---------- Story (derived): everything stacks ---------- */
+    #canvas[data-orient="tall"] .badge { font-size: clamp(10px, 2cqw, 20px); }
+    #canvas[data-orient="tall"] h1 { font-size: clamp(56px, 13.5cqw, 170px); }
+    #canvas[data-orient="tall"] .sub { max-width: 92cqw; }
+    #canvas[data-orient="tall"] footer { flex-direction: column; align-items: stretch; }
+    #canvas[data-orient="tall"] .cmd { white-space: normal; }
