@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Afiche Studio — Editor</title>
+<link rel="icon" href="data:,">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800;900&family=JetBrains+Mono:wght@400;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="/shared/styles/brand.css">
+<link rel="stylesheet" href="/editor.css">
+</head>
+<body>
+
+<header id="topbar">
+  <div class="brand">Afiche<span>Studio</span></div>
+  <select id="project" title="Project"></select>
+  <div class="spacer"></div>
+  <div class="tools" id="tools">
+    <div class="status" id="status">ready</div>
+    <button class="ghost" id="btn-new" title="New project (without leaving the editor)">+ New</button>
+    <button class="ghost" id="btn-toggle-code" title="Show / hide code (Ctrl+E)">&#9998; Code</button>
+    <button class="ghost" id="btn-save" title="Ctrl+S">Save</button>
+  </div>
+  <button class="primary" id="btn-export">Export&#8230;</button>
+  <button class="icon" id="btn-menu" aria-expanded="false" title="Show / hide the extra tools">&#9776;</button>
+</header>
+
+<div id="code-rail" title="Click to open the code editor">
+  <span>&#9998; Code</span><span class="caret">&#9654;</span>
+</div>
+
+<section id="editor-pane">
+  <div class="pane-label">
+    <div id="file-tabs"></div>
+    <span class="hint">autosave 2s &#183; Ctrl+S to save &#183; Ctrl+E to collapse</span>
+  </div>
+  <div id="code-wrap">
+    <div id="gutter">1</div>
+    <div id="code-scroll">
+      <pre id="hl"></pre>
+      <textarea id="code" spellcheck="false" wrap="off" autocomplete="off" autocapitalize="off"></textarea>
+    </div>
+  </div>
+</section>
+
+<section id="stage">
+  <div id="stage-bar">
+    <span class="bar-label">Preview as:</span>
+    <span id="chips"></span>
+    <div class="spacer"></div>
+    <button class="ghost icon" id="btn-zoom-out" title="Zoom out">&#8722;</button>
+    <span id="zoom-label">100%</span>
+    <button class="ghost icon" id="btn-zoom-in" title="Zoom in">+</button>
+    <button class="ghost" id="btn-zoom-fit">Fit</button>
+  </div>
+  <div id="preview-wrap">
+    <div id="frame-holder"><iframe id="preview" src="about:blank" title="Preview"></iframe></div>
+  </div>
+</section>
+
+<aside id="export-panel">
+  <h3>Export variants</h3>
+  <div class="row">
+    <label>File formats</label>
+    <div class="pill-group" id="fmt-group">
+      <label class="opt"><input type="checkbox" value="png" checked> PNG</label>
+      <label class="opt"><input type="checkbox" value="webp"> WEBP</label>
+      <label class="opt"><input type="checkbox" value="jpg"> JPG</label>
+    </div>
+  </div>
+  <div class="row">
+    <label>Variants (layouts)</label>
+    <div class="pill-group" id="variant-group"></div>
+  </div>
+  <div class="row">
+    <label>Scale (sharpness)</label>
+    <div class="pill-group" id="scale-group">
+      <label class="opt"><input type="radio" name="scale" value="1"> 1x</label>
+      <label class="opt"><input type="radio" name="scale" value="2" checked> 2x</label>
+      <label class="opt"><input type="radio" name="scale" value="3"> 3x</label>
+    </div>
+  </div>
+  <button class="primary wide" id="btn-render">Render</button>
+  <div id="export-out"></div>
+</aside>
+
+<section id="new-dialog" hidden>
+  <h3>New project</h3>
+  <div class="row">
+    <label>Project name</label>
+    <input id="new-name" name="new-name" autocomplete="off" placeholder="my-post">
+  </div>
+  <div class="row">
+    <label>Source of the design (optional)</label>
+    <div class="pill-group">
+      <button class="ghost" id="new-pick-css" title="Attach one or more stylesheets (.css or HTML with &lt;style&gt; blocks)">&#128196; CSS files&#8230;</button>
+    </div>
+    <input type="file" id="new-file-input" accept=".css,.htm,.html" multiple hidden>
+  </div>
+  <div class="new-selected" id="new-selected">no styles selected &#8212; plain template</div>
+  <div class="row actions">
+    <button class="ghost" id="new-cancel">Cancel</button>
+    <button class="primary" id="new-create" disabled>Create</button>
+  </div>
+</section>
+
+<!-- classic script: exposes window.aficheHighlight for the code editor -->
+<script src="/editor-highlight.js"></script>
+<script type="module" src="/editor.js"></script>
+</body>
+</html>
