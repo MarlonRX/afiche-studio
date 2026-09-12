@@ -1,0 +1,35 @@
+# Dependencies
+node_modules/
+
+# Generated render output
+outputs/
+
+# Local debug / scratch scripts
+_dbg.js
+
+# Keep the bundled sample projects tracked, ignore user projects
+projects/*
+!projects/demo/
+!projects/afiche/
+!projects/afiche-studio/
+!projects/git-hero/
+!projects/nodovec/
+!projects/vitrina/
+
+# OS
+.DS_Store
+Thumbs.db
+desktop.ini
+
+# Editor / IDE
+.vscode/
+.idea/
+*.swp
+
+# Env & logs
+.env
+.env.local
+*.log
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*

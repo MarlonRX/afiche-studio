@@ -1,0 +1,23 @@
+{
+  "name": "afiche-studio",
+  "version": "1.0.0",
+  "description": "Promotional image generator (HTML/CSS -> PNG) - sister project of hyper-frames-videos",
+  "main": "src/index.js",
+  "bin": {
+    "afiche": "./cli/afiche.js"
+  },
+  "scripts": {
+    "dev": "node server/index.js",
+    "start": "node server/index.js",
+    "list": "node cli/afiche.js --list",
+    "create": "node cli/afiche.js --create",
+    "render": "node cli/afiche.js --render",
+    "test": "node --test"
+  },
+  "dependencies": {
+    "commander": "^12.1.0",
+    "puppeteer": "^23.0.0"
+  },
+  "keywords": ["poster", "image", "promotional", "design", "png", "html-to-image"],
+  "license": "MIT"
+}
