@@ -1,0 +1,187 @@
+/* Afiche Studio - templates: project styles, extracted from index.html.
+   Linked right after shared/styles/brand.css + adaptive.css. */
+
+/* ===== Adaptive canvas =====
+       Uses container query units (cqw/cqh): the same design responds
+       to square post, vertical story, wide 16:9, banner... */
+    #canvas {
+        container-type: size;
+        display: grid;
+        grid-template-rows: auto 1fr auto;
+        padding: 8cqh 6.5cqw;
+        gap: 3cqh;
+    }
+
+    .grid {
+        position: absolute;
+        inset: 0;
+        background-image:
+            linear-gradient(rgba(212,175,55,.045) 1px, transparent 1px),
+            linear-gradient(90deg, rgba(212,175,55,.045) 1px, transparent 1px);
+        background-size: 5.5cqw 5.5cqw;
+        mask-image: radial-gradient(ellipse 85% 70% at 50% 45%, #000 40%, transparent 100%);
+        -webkit-mask-image: radial-gradient(ellipse 85% 70% at 50% 45%, #000 40%, transparent 100%);
+    }
+
+    .glow {
+        position: absolute;
+        width: 66cqw;
+        height: 66cqw;
+        left: 50%;
+        top: 42%;
+        transform: translate(-50%, -50%);
+        background: radial-gradient(circle, rgba(212,175,55,.16) 0%, transparent 62%);
+    }
+
+    /* ===== Header ===== */
+    header {
+        position: relative;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        z-index: 2;
+    }
+
+    .badge {
+        display: inline-flex;
+        align-items: center;
+        gap: 1.6cqw;
+        padding: 1.3cqh 2.4cqw;
+        border: 1px solid var(--accent);
+        border-radius: 999px;
+        font-family: 'JetBrains Mono', monospace;
+        font-size: clamp(13px, min(2cqw, 2.2cqh), 30px);
+        font-weight: 700;
+        letter-spacing: .14em;
+        text-transform: uppercase;
+        color: var(--accent);
+        background: rgba(212,175,55,.07);
+    }
+
+    .badge .dot {
+        width: .9em;
+        height: .9em;
+        border-radius: 50%;
+        background: var(--accent);
+        box-shadow: 0 0 .8em var(--accent);
+    }
+
+    .logo {
+        font-size: clamp(16px, min(2.8cqw, 3cqh), 34px);
+        font-weight: 900;
+        letter-spacing: -.02em;
+        color: var(--text);
+    }
+
+    .logo span { color: var(--accent); }
+
+    /* ===== Body ===== */
+    main {
+        position: relative;
+        z-index: 2;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        gap: 2.6cqh;
+        min-height: 0;
+    }
+
+    h1 {
+        font-size: clamp(34px, min(9.2cqw, 11cqh), 120px);
+        font-weight: 900;
+        line-height: 1.04;
+        letter-spacing: -.035em;
+        color: var(--text);
+    }
+
+    h1 em { font-style: normal; color: var(--accent); }
+
+    .sub {
+        font-size: clamp(15px, min(3.1cqw, 3.6cqh), 40px);
+        font-weight: 400;
+        line-height: 1.42;
+        color: var(--muted);
+        max-width: 76cqw;
+    }
+
+    /* Key points: in a row when the canvas is wide, in a column when not */
+    ul.points {
+        list-style: none;
+        display: flex;
+        flex-wrap: wrap;
+        gap: 1.4cqh 2.6cqw;
+        margin-top: .8cqh;
+    }
+
+    ul.points li {
+        display: flex;
+        align-items: center;
+        gap: .8em;
+        font-size: clamp(12px, min(2.4cqw, 2.9cqh), 32px);
+        font-weight: 600;
+        color: var(--text-soft);
+    }
+
+    ul.points li::before {
+        content: '';
+        flex: none;
+        width: .95em;
+        height: .95em;
+        border-radius: .22em;
+        background: rgba(212,175,55,.16);
+        border: .08em solid var(--accent);
+    }
+
+    /* In wide layouts: headline and points side by side */
+    #canvas[data-orient="wide"] main {
+        flex-direction: row;
+        align-items: center;
+        gap: 5cqw;
+    }
+    #canvas[data-orient="wide"] main > .txt { flex: 1.15; min-width: 0; }
+    #canvas[data-orient="wide"] ul.points { flex-direction: column; flex: .85; }
+    #canvas[data-orient="wide"] .sub { max-width: 100%; }
+
+    /* ===== Footer ===== */
+    footer {
+        position: relative;
+        z-index: 2;
+        display: flex;
+        align-items: flex-end;
+        justify-content: space-between;
+        padding-top: 2.4cqh;
+        border-top: 1px solid var(--line);
+    }
+
+    .cta {
+        display: inline-flex;
+        align-items: center;
+        gap: 1em;
+        padding: clamp(10px, 1.7cqh, 28px) clamp(16px, 3cqw, 46px);
+        border-radius: .45em;
+        background: var(--accent);
+        color: #0f0f12;
+        font-size: clamp(13px, min(2.6cqw, 3cqh), 33px);
+        font-weight: 800;
+        letter-spacing: -.01em;
+    }
+
+    .cta svg { width: 1.15em; height: 1.15em; }
+
+    .meta {
+        text-align: right;
+        font-family: 'JetBrains Mono', monospace;
+        font-size: clamp(11px, min(1.9cqw, 2.1cqh), 23px);
+        line-height: 1.6;
+        color: var(--muted);
+        letter-spacing: .04em;
+    }
+
+    .meta strong {
+        display: block;
+        font-family: 'Inter', sans-serif;
+        font-size: 1.35em;
+        font-weight: 700;
+        color: var(--text);
+        letter-spacing: -.01em;
+    }
