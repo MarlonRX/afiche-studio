@@ -41,6 +41,15 @@ export function createCodeEditor(ctx, { onAutosaved = () => {}, onToggled = () =
     syncScroll();
   }
 
+  // At most one highlight pass per animation frame: refresh() re-highlights
+  // the whole document, and keystrokes can arrive faster than 60fps.
+  let rafPending = false;
+  function scheduleRefresh() {
+    if (rafPending) return;
+    rafPending = true;
+    requestAnimationFrame(() => { rafPending = false; refresh(); });
+  }
+
   function syncScroll() {
     hl.scrollTop = ta.scrollTop;
     hl.scrollLeft = ta.scrollLeft;
@@ -85,9 +94,9 @@ export function createCodeEditor(ctx, { onAutosaved = () => {}, onToggled = () =
   }
 
   ta.addEventListener('input', () => {
-    ctx.status.set('unsaved\u2026', 'dirty');
+    ctx.status.set('unsaved…', 'dirty');
     dirty.add(tabs.active());
-    refresh();
+    scheduleRefresh();
     clearTimeout(saveTimer);
     saveTimer = setTimeout(() => save(true).then(onAutosaved), 2000);
   });

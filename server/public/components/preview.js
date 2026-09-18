@@ -39,13 +39,23 @@ export function createPreview(ctx) {
       const a = available();
       z = Math.max(Math.min(a.w / p.width, a.h / p.height, 1), 0.05);
     }
+    // Hysteresis: if the zoom did not meaningfully change, do not write.
+    // (Writing --z moves the holder margins, which can re-trigger the RO.)
+    const cur = parseFloat(holder.style.getPropertyValue('--z'));
+    if (Number.isFinite(cur) && Math.abs(cur - z) < 0.002) return;
     // JS only publishes numbers; scale(), margins and size are computed in CSS.
     holder.style.setProperty('--z', z);
     $('#zoom-label').textContent = Math.round(z * 100) + '%';
   }
 
-  // Live reload: the server broadcasts 'reload' after every save
-  new EventSource('/events').addEventListener('reload', reload);
+  // Live reload: the server broadcasts 'reload' after every save.
+  // Debounced: autosave fires on typing pauses, and a full iframe reload
+  // (fonts + layout + adaptive boot) per save is what pinned the CPU.
+  let reloadTimer = null;
+  new EventSource('/events').addEventListener('reload', () => {
+    clearTimeout(reloadTimer);
+    reloadTimer = setTimeout(reload, 400);
+  });
 
   // Auto-fit on any layout change (window resize, drawer, panel stacking)
   if ('ResizeObserver' in window) {

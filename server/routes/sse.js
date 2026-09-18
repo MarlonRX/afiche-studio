@@ -16,9 +16,12 @@ function handle(req, res, url) {
     'Cache-Control': 'no-cache',
     'Connection': 'keep-alive',
   });
-  res.write('retry: 1500\n\n');
+  res.write('retry: 5000\n\n');
+  // Heartbeat: keeps proxies/OS from silently killing the stream, so the
+  // client does not fall into a reconnect storm (was: retry 1500, no ping).
+  const keepAlive = setInterval(() => res.write(': ping\n\n'), 25000);
   clients.add(res);
-  req.on('close', () => clients.delete(res));
+  req.on('close', () => { clearInterval(keepAlive); clients.delete(res); });
   return true;
 }
 
