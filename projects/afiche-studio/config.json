@@ -1,7 +1,7 @@
 {
   "name": "afiche-studio",
   "title": "Afiche Studio - Design in HTML, export everywhere",
-  "description": "Centered promotional poster for Afiche Studio itself (dogfooding). Master layout is the 16:9 landscape; other variants derive from it.",
+  "description": "Editorial poster in the Vitrina language (big Fraunces wordmark, centered axis, no graphics) wearing the editor chrome palette: near-black surfaces, brand gold.",
   "preset": "wide",
   "width": 1920,
   "height": 1080,
@@ -16,7 +16,7 @@
       "text": "#e1e1e1"
     },
     "typography": {
-      "headlineFont": "Space Grotesk (700)",
+      "headlineFont": "Fraunces (600, italic 400)",
       "bodyFont": "Inter (400/500)",
       "monoFont": "JetBrains Mono"
     }

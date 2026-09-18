@@ -1,121 +1,124 @@
 /* Afiche Studio - afiche-studio: project styles, extracted from index.html.
    Linked right after shared/styles/brand.css + adaptive.css. */
 
-/* Afiche Studio — centered promotional poster (master: 16:9 landscape).
-       Identity: Space Grotesk headlines, gold on near-black, mono terminals
-       for the workflow. Same structure as the templates: grid + glow, a
-       header, a main block and a footer with the CTA. */
-    #canvas {
-        container-type: size;
-        display: grid;
-        grid-template-rows: auto 1fr auto;
-        padding: 8cqh 7cqw;
-        gap: 3.6cqh;
-        position: relative;
-        overflow: hidden;
-        background:
-            radial-gradient(ellipse 70% 60% at 50% 0%, rgba(212,175,55,.10), transparent 58%),
-            radial-gradient(ellipse 60% 55% at 90% 100%, rgba(240,207,106,.05), transparent 55%),
-            var(--bg);
-        color: var(--text);
-    }
-    .grid {
-        position: absolute; inset: 0;
-        background-image:
-            linear-gradient(rgba(212,175,55,.04) 1px, transparent 1px),
-            linear-gradient(90deg, rgba(212,175,55,.04) 1px, transparent 1px);
-        background-size: 5.5cqw 5.5cqw;
-        mask-image: radial-gradient(ellipse 85% 70% at 50% 48%, #000 38%, transparent 100%);
-        -webkit-mask-image: radial-gradient(ellipse 85% 70% at 50% 48%, #000 38%, transparent 100%);
-    }
-    .glow {
-        position: absolute; width: 64cqw; height: 64cqw;
-        left: 50%; top: 45%; transform: translate(-50%, -50%);
-        background: radial-gradient(circle, rgba(212,175,55,.15) 0%, transparent 62%);
-    }
+/* Afiche Studio — editorial composition in the Vitrina language (big
+   Fraunces wordmark, centered axis, hairline frame, tags + url, no
+   graphics). Wears its own app's skin: the editor chrome palette —
+   near-black #0f0f12 surfaces with the brand gold #d4af37. */
+#canvas {
+    --bg:        #0f0f12;   /* editor background (brand.css --bg) */
+    --bg-deep:   #09090b;
+    --surface:   #1a1a1f;   /* editor panels  */
+    --line:      #2a2a30;   /* editor borders */
+    --gold:      #d4af37;   /* brand accent   */
+    --gold-2:    #f0cf6a;   /* accent hover   */
+    --text:      #e1e1e1;
+    --muted:     #a0a0a0;
+    container-type: size;
+    position: relative;
+    overflow: hidden;
+    background: var(--bg);
+    color: var(--text);
+    font-family: 'Inter', sans-serif;
+}
 
-    header { position: relative; z-index: 2; display: flex; align-items: center; justify-content: space-between; }
-    .badge {
-        display: inline-flex; align-items: center; gap: 1.4cqw;
-        padding: 1.1cqh 2.2cqw; border: 1px solid var(--accent); border-radius: 999px;
-        font-family: 'JetBrains Mono', monospace;
-        font-size: clamp(12px, min(1.6cqw, 1.9cqh), 22px);
-        font-weight: 600; letter-spacing: .16em; text-transform: uppercase;
-        color: var(--accent); background: rgba(212,175,55,.07);
-    }
-    .badge .dot { width: .85em; height: .85em; border-radius: 50%; background: var(--accent); box-shadow: 0 0 .9em var(--accent); }
-    .logo { font-family: 'Space Grotesk', sans-serif; font-size: clamp(18px, min(2.5cqw, 2.7cqh), 34px); font-weight: 700; letter-spacing: -.02em; color: var(--text); }
-    .logo span { color: var(--accent); }
+.paper {
+    position: absolute; inset: 0;
+    background:
+        radial-gradient(ellipse 110% 85% at 50% -18%, rgba(212,175,55,.10), transparent 58%),
+        radial-gradient(ellipse 100% 80% at 50% 118%, rgba(9,9,11,.9), transparent 55%);
+}
 
-    main { position: relative; z-index: 2; display: flex; flex-direction: column; justify-content: center; gap: 2.4cqh; min-height: 0; text-align: center; }
-    .kicker {
-        font-family: 'JetBrains Mono', monospace;
-        font-size: clamp(11px, min(1.5cqw, 1.8cqh), 20px);
-        letter-spacing: .34em; text-transform: uppercase; color: var(--accent);
-    }
-    h1 {
-        margin: 0;
-        font-family: 'Space Grotesk', sans-serif;
-        font-weight: 700;
-        font-size: clamp(46px, min(10.5cqw, 19cqh), 190px);
-        line-height: .98; letter-spacing: -.045em; color: var(--text);
-    }
-    h1 em { font-style: normal; color: var(--accent); }
-    .sub {
-        margin: 0 auto;
-        font-family: 'Inter', sans-serif; font-weight: 500;
-        font-size: clamp(15px, min(2.6cqw, 3cqh), 36px);
-        line-height: 1.45; color: var(--muted); max-width: 74cqw;
-    }
-    .sub b { color: var(--text-soft); font-weight: 600; }
+.frame {
+    position: absolute; inset: 4cqw;
+    border: 1.5px solid rgba(225,225,225,.12);
+    pointer-events: none;
+}
 
-    ul.points {
-        list-style: none; margin: .6cqh auto 0; padding: 0;
-        display: flex; flex-wrap: wrap; justify-content: center; gap: 1.1cqh 1.8cqw;
-    }
-    ul.points li {
-        display: flex; align-items: center; gap: .8em;
-        font-family: 'JetBrains Mono', monospace; font-weight: 600;
-        font-size: clamp(12px, min(1.9cqw, 2.2cqh), 25px);
-        color: var(--text-soft);
-    }
-    ul.points li::before {
-        content: ''; flex: none; width: .85em; height: .85em; border-radius: .22em;
-        background: rgba(212,175,55,.16); border: .08em solid var(--accent);
-    }
+/* Everything on one vertical axis, optically centered */
+.inner {
+    position: relative; height: 100%;
+    display: flex; flex-direction: column;
+    align-items: center; justify-content: center;
+    text-align: center;
+    padding: 8cqh 9cqw;
+    box-sizing: border-box;
+    gap: 3.4cqh;
+}
 
-    footer {
-        position: relative; z-index: 2;
-        display: flex; align-items: flex-end; justify-content: space-between; gap: 3cqw;
-        padding-top: 2.4cqh; border-top: 1px solid var(--line);
-    }
-    .cmd {
-        font-family: 'JetBrains Mono', monospace;
-        font-size: clamp(14px, min(1.9cqw, 2.2cqh), 28px);
-        font-weight: 600; color: var(--text-soft);
-        background: var(--surface); border: 1px solid var(--line); border-radius: .5em;
-        padding: 1.05em 1.6em; white-space: nowrap;
-    }
-    .cmd i { font-style: normal; color: var(--accent); font-weight: 700; }
-    .cta {
-        display: inline-flex; align-items: center; gap: .8em;
-        padding: clamp(12px, 1.6cqh, 28px) clamp(18px, 2.6cqw, 44px);
-        border-radius: .5em; background: var(--accent); color: #0f0f12;
-        font-family: 'Space Grotesk', sans-serif; font-weight: 700;
-        font-size: clamp(14px, min(2cqw, 2.3cqh), 30px); letter-spacing: -.01em;
-        text-decoration: none; white-space: nowrap;
-    }
-    .cta svg { width: 1.1em; height: 1.1em; }
+/* ===== Mark + issue, centered above the wordmark ===== */
+.crest { display: flex; flex-direction: column; align-items: center; gap: 1.6cqh; }
+.crest svg { width: clamp(30px, min(4.4cqw, 8cqh), 64px); height: auto; display: block; }
+.issue {
+    font-size: clamp(9px, min(1.5cqw, 2.7cqh), 19px);
+    font-weight: 500; letter-spacing: .34em; text-transform: uppercase;
+    color: rgba(225,225,225,.5);
+    padding-left: .34em; /* compensate tracking so it reads centered */
+}
 
-    /* ---------- Square (derived): centered stacks vertically ---------- */
-    #canvas[data-orient="square"] main { gap: 3.2cqh; }
-    #canvas[data-orient="square"] h1 { font-size: clamp(52px, 12.5cqw, 150px); }
-    #canvas[data-orient="square"] footer { flex-direction: column; align-items: stretch; }
-    #canvas[data-orient="square"] .cmd { white-space: normal; }
+/* ===== Wordmark: the protagonist ===== */
+h1 {
+    font-family: 'Fraunces', serif;
+    font-weight: 600;
+    font-size: clamp(64px, min(11.5cqw, 26cqh), 210px);
+    line-height: .95; letter-spacing: -.025em;
+    margin: 0; color: var(--text);
+}
+h1 i { font-style: italic; font-weight: 400; color: var(--gold); }
 
-    /* ---------- Story (derived): everything stacks ---------- */
-    #canvas[data-orient="tall"] .badge { font-size: clamp(10px, 2cqw, 20px); }
-    #canvas[data-orient="tall"] h1 { font-size: clamp(56px, 13.5cqw, 170px); }
-    #canvas[data-orient="tall"] .sub { max-width: 92cqw; }
-    #canvas[data-orient="tall"] footer { flex-direction: column; align-items: stretch; }
-    #canvas[data-orient="tall"] .cmd { white-space: normal; }
+/* ===== Divider: rule / word / rule ===== */
+.divider { display: flex; align-items: center; gap: 2cqw; width: min(72cqw, 90%); }
+.divider::before, .divider::after { content: ''; flex: 1; height: 1.5px; background: rgba(225,225,225,.18); }
+.divider .gem { flex: none; width: clamp(7px, min(.9cqw, 1.6cqh), 13px); aspect-ratio: 1; background: var(--gold); transform: rotate(45deg); }
+
+/* ===== Description ===== */
+.kicker p {
+    font-size: clamp(13px, min(1.9cqw, 4.4cqh), 27px);
+    line-height: 1.55; color: rgba(225,225,225,.78); margin: 0; max-width: 62cqw;
+}
+.kicker p strong { color: var(--text); font-weight: 700; }
+.kicker p em { font-style: normal; color: var(--gold); font-weight: 700; }
+
+/* ===== Footer band: tags + url, centered stack ===== */
+footer { display: flex; flex-direction: column; align-items: center; gap: 2.4cqh; margin-top: 1.2cqh; }
+.tags { display: flex; gap: 1.2cqw; flex-wrap: wrap; justify-content: center; }
+.tag {
+    padding: 1cqh 2.1cqw;
+    border: 1.5px solid rgba(225,225,225,.4); border-radius: 999px;
+    font-size: clamp(9.5px, min(1.35cqw, 3.1cqh), 21px);
+    font-weight: 500; letter-spacing: .04em; white-space: nowrap;
+    color: var(--text);
+}
+.tag.dark { background: var(--surface); color: var(--gold-2); border-color: var(--line); }
+.tag.gold { background: var(--gold); color: var(--bg-deep); border-color: var(--gold); font-weight: 700; }
+
+.url {
+    font-family: 'Fraunces', serif;
+    font-size: clamp(13px, min(2cqw, 4.6cqh), 29px);
+    font-weight: 600; letter-spacing: .01em; line-height: 1.35;
+    color: var(--text);
+}
+.url span { color: var(--gold); }
+.url small {
+    display: block; font-family: 'Inter', sans-serif;
+    font-size: clamp(8.5px, min(1.25cqw, 2.9cqh), 17px);
+    font-weight: 500; color: var(--muted); letter-spacing: .06em; margin-top: .6cqh;
+}
+
+/* ---------- Square (derived): same axis, wider type rhythm ---------- */
+#canvas[data-orient="square"] h1 { font-size: clamp(64px, min(15cqw, 22cqh), 260px); }
+#canvas[data-orient="square"] .kicker p { max-width: 68cqw; font-size: clamp(13px, min(2.5cqw, 3.6cqh), 34px); }
+#canvas[data-orient="square"] .tag { font-size: clamp(10px, min(1.75cqw, 2.5cqh), 23px); }
+#canvas[data-orient="square"] .url { font-size: clamp(14px, min(2.6cqw, 3.8cqh), 36px); }
+#canvas[data-orient="square"] .crest svg { width: clamp(34px, min(5.6cqw, 8cqh), 74px); }
+#canvas[data-orient="square"] .issue { font-size: clamp(9.5px, min(1.8cqw, 2.6cqh), 22px); }
+
+/* ---------- Story (derived): taller stack, airier divider ---------- */
+#canvas[data-orient="tall"] .inner { gap: 5cqh; padding: 10cqh 11cqw; }
+#canvas[data-orient="tall"] h1 { font-size: clamp(72px, 24cqw, 300px); }
+#canvas[data-orient="tall"] .kicker p { max-width: 80cqw; font-size: clamp(15px, min(4.6cqw, 2.6cqh), 40px); }
+#canvas[data-orient="tall"] .divider { width: min(84cqw, 92%); }
+#canvas[data-orient="tall"] .tag { font-size: clamp(12px, min(3.4cqw, 1.9cqh), 26px); }
+#canvas[data-orient="tall"] .url { font-size: clamp(16px, min(4.8cqw, 2.7cqh), 40px); }
+#canvas[data-orient="tall"] .crest svg { width: clamp(40px, min(10cqw, 5cqh), 88px); }
+#canvas[data-orient="tall"] .issue { font-size: clamp(11px, min(3.2cqw, 1.8cqh), 24px); }
